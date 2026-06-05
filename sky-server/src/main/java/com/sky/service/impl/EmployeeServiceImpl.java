@@ -20,6 +20,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
+import com.sky.entity.Employee;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -99,6 +100,21 @@ public class EmployeeServiceImpl implements EmployeeService {
         List<Employee> employees = employeeMapper.pageQuery(employeePageQueryDTO);
         Page<Employee> page = (Page<Employee>) employees;
         return new PageResult(page.getTotal(), page.getResult());
+    }
+
+    /**
+     * 启用禁用员工账号
+     *
+     * @param status
+     * @param id
+     */
+    @Override
+    public void startOrStop(Integer status, Long id) {
+        Employee employee=Employee.builder()
+                .status(status)
+                .id(id)
+                .build();
+        employeeMapper.startOrStop(employee);
     }
 
 }
