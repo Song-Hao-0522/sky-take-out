@@ -11,3 +11,7 @@ sky:
     access-key-secret: ulINGrwm2oBsB4A7ML7MKhbb52RlAH
     bucket-name: song-hao-java
     endpoint: oss-cn-beijing.aliyuncs.com
+  redis:
+    host: localhost
+    port: 6379
+    password: 123456
