@@ -116,7 +116,7 @@ public class DishController {
     }
 
     @GetMapping("/list")
-    public Result<List<Dish>> list(@RequestParam Integer categoryId) {
+    public Result<List<Dish>> list(@RequestParam Long categoryId) {
         log.info("根据id查询分类：{}", categoryId);
         List<Dish> list = dishService.list(categoryId);
         return Result.success(list);
